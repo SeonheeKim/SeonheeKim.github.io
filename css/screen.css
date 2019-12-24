@@ -669,6 +669,7 @@ article .text blockquote {
 }
 article .text table {
     display: block;
+    background-color: lemonchiffon;
     max-width: 100%;
     overflow-x: auto;
     text-align: left;
