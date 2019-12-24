@@ -6,7 +6,7 @@
 ![1](https://raw.githubusercontent.com/SeonheeKim/SeonheeKim.github.io/master/content/images/2019-12-24_filter/1.png)
 
 
-|  | Filter | Interceptor | AOP |
+|     | Filter | Interceptor | AOP |
 | --- | --- | --- | --- |
 | 실행 위치 | Servlet(Dispatcher Servlet 밖) | Servlet(Dispatcher Servlet 안) | Method |
 | 실행 순서 | 1 | 2 | 3 |
