@@ -9,9 +9,10 @@
 
 ### 예외처리
 
-- Filter에서 예외가 발생하면 Web Application에서 처리해야 한다. 
+- Filter에서 예외가 발생하면 Web Application에서 처리해야 한다.  
 tomcat을 사용한다면 \<error-page>를 잘 선언하던가 아니면 Filter 내에서 예외를 잡아 request.getRequestDispatcher(String)으로 예외 처리를 미뤄야 한다  
-- 하지만 Interceptor에서 예외가 발생하면? Interceptor의 실행 시점을 보자, Spring의 ServletDispatcher 내에 있다.  
+- 하지만 Interceptor에서 예외가 발생하면? Interceptor의 실행 시점을 보자.  
+Spring의 ServletDispatcher 내에 있다.  
 즉 @ControllerAdvice에서 @ExceptionHandler를 사용해서 예외를 처리를 할 수 있다.  
 - 만약 작성해야할 전후처리 로직에서 예외를 전역적으로 처리하고 싶다면 Interceptor를 사용하자.  
 
@@ -20,7 +21,8 @@ tomcat을 사용한다면 \<error-page>를 잘 선언하던가 아니면 Filter 
 - Interceptor는 Handler를 실행하기전(preHandle), Handler를 실행한 후(postHandle), view를 렌더링한 후(afterCompletion 등, Servlet내에서도 메서드에 따라 실행 시점을 다르게 가져간다.  
 
 ### Interceptor에서만 할 수 있는 것  
-- @RequestMapping 선언으로 요청에 대한 HandlerMethod(@Controller의 메서드)가 정해졌다면, handler라는 이름으로 HandlerMethod가 들어온다.  
+- @RequestMapping 선언으로 요청에 대한 HandlerMethod(@Controller의 메서드)가 정해졌다면,  
+  handler라는 이름으로 HandlerMethod가 들어온다.  
   HandlerMethod로 메서드 시그니처 등 추가적인 정보를 파악해서 로직 실행 여부를 판단할 수 있다.  
 - View를 렌더링하기 전에 추가 작업을 할 수 있다. 예를 들어 웹 페이지가 권한에 따라 GNB(Global Navigation Bar)이 항목이 다르게 노출되어야 할 때 등의 처리를 하기 좋다.  
 
@@ -29,14 +31,19 @@ tomcat을 사용한다면 \<error-page>를 잘 선언하던가 아니면 Filter 
 
 * * *
 
+### 정리하며
+
+(대체적으로)  
 - 주로 전역적으로 무엇인가를 처리해야하는 로직은 필터로 구현을 하고(인코딩 및 보안관련 처리)  
 - 디테일한 처리는 인터셉터로 구현 한다.(인증, 권한)  
 <br>
 
-- Controller 실행 시 Idp 객체 내 memberId에 인코딩을 적용하고자 한다면    
+- Controller 실행 시 Idp 객체 내 memberId에 인코딩을 적용하고자 한다면  
     - 1. Filter로 DispatcherSerlvet를 타기 전 인코딩 적용하던가  
     - 2. Interceptor preHandle를 이용해 Argument Resolver를 타기 전 인코딩 적용  
     - preHandle -> IdpResolver(resolveArgument) -> afterCompletion  
+    
+(ps. ArgumentResolver 관련해서는 아직 정리를 못했지만...추후 포스트할 예정이다.)
 
 <br>
 
