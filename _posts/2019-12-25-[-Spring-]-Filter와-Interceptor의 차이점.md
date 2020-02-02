@@ -18,7 +18,7 @@ Spring의 ServletDispatcher 내에 있다.
 
 ### 시점
 - Filter는 Servlet에서 처리하기 전후를 다룰 수 있다.  
-- Interceptor는 Handler를 실행하기전(preHandle), Handler를 실행한 후(postHandle), view를 렌더링한 후(afterCompletion 등, Servlet내에서도 메서드에 따라 실행 시점을 다르게 가져간다.  
+- Interceptor는 Handler를 실행하기전(preHandle), Handler를 실행한 후(postHandle), view를 렌더링한 후(afterCompletion) 등, Servlet내에서도 메서드에 따라 실행 시점을 다르게 가져간다.  
 
 ### Interceptor에서만 할 수 있는 것  
 - @RequestMapping 선언으로 요청에 대한 HandlerMethod(@Controller의 메서드)가 정해졌다면,  
