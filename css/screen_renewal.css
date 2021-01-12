@@ -1,6 +1,17 @@
 /* Link colour */
+
+@import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
+
 a {
     color: #d35c5c;
+}
+
+.highlighter-rouge {
+    background-color: #efefef;
+}
+
+a > p {
+    color: #0e3054;
 }
 
 /* Border at the top of the page */
@@ -33,7 +44,8 @@ caption, th, td {
     vertical-align: middle
 }
 q, blockquote {
-    quotes: none
+    quotes: none;
+    color: #909396;
 }
 q:before, q:after, blockquote:before, blockquote:after {
     content: "";
@@ -55,8 +67,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     font-style: normal
 }
 
+@font-face {
+    font-family: 'Lobster';
+    src: url("../assets/fonts/Lobster.ttf") format("truetype");
+}
+
 body {
-    font-family: "Open Sans", "Helvetica Neue", "Helvetica-Neue", helvetica, sans-serif
+    font-family: 'Noto Sans Korean', "Open Sans", "Helvetica Neue", "Helvetica-Neue", helvetica, sans-serif
 }
 body .btn, body>header h1, body article header h1, body>footer .details h4, body .post-footer .details h4, body #share_modal header a.close, body.user article.feature h1 a {
     font-family: "Open Sans", "Helvetica Neue", "Helvetica-Neue", helvetica, sans-serif
@@ -79,11 +96,11 @@ body.serif article time, body.serif article>.meta, body.serif article>header h1,
     font-family: "Merriweather", "Georgia", "Times New Roman", serif
 }
 body.serif article .text {
-    font-family: "Merriweather", "Georgia", "Times New Roman", serif;
+    font-family: 'Noto Sans Korean', "Merriweather", "Georgia", "Times New Roman", serif;
     font-size: 17px
 }
 body.serif article .text blockquote {
-    font-family: "Merriweather", "Georgia", "Times New Roman", serif
+    font-family: 'Noto Sans Korean', "Merriweather", "Georgia", "Times New Roman", serif
 }
 body.serif article>menu #btn_comment {
     font-family: "Merriweather", "Georgia", "Times New Roman", serif;
@@ -322,10 +339,10 @@ a:active {
 }
 hr {
     border: none;
-    height: 1px;
+    height: 2px;
     margin: 0;
     padding: 0;
-    background-color: #e5e5e5
+    background-color: #eeeeee;
 }
 .btn {
     display: -moz-inline-stack;
@@ -336,7 +353,7 @@ hr {
     *display: inline;
     padding: 20px 30px;
     margin: 0;
-    background-color: #909396;
+    background-color: #0e3054;
     color: #fff;
     font-weight: bold;
     -webkit-border-radius: 50px;
@@ -361,7 +378,9 @@ body>header h1 {
     font-weight: bold
 }
 body>header h1 a {
-    color: #21272d
+    color: #0e3054;
+    font-family: 'Lobster', cursive;
+    font-size: 5rem;
 }
 body.noimage {
     border-top-width: 4px;
@@ -392,7 +411,7 @@ body.noimage {
 article {
     margin: 65px auto 0 auto;
     padding: 0 30px;
-    max-width: 680px;
+    max-width: 850px;
     text-align: left
 }
 article #home_link {
@@ -420,11 +439,11 @@ article time, article time a {
     text-rendering: optimizeLegibility
 }
 article>header {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-rendering: optimizeLegibility
 }
 article>header h1 {
-    margin-top: 20px;
+    margin-top: 60px;
     font-weight: bold;
     font-size: 40px;
     line-height: 1.2em;
@@ -433,7 +452,8 @@ article>header h1 {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
-    hyphens: auto
+    hyphens: auto;
+    color: #d35c5c;
 }
 article>header .meta {
     display: -moz-inline-stack;
@@ -449,15 +469,16 @@ article>header .count {
     color: #a4adb6
 }
 article .text {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7em;
     text-rendering: optimizeLegibility;
     max-width: 100%;
     text-align: center;
-    word-wrap: break-word
+    word-wrap: break-word;
+    margin-bottom: 5rem;
 }
 article .text p, article .text pre, article .text img, article .text ol, article .text ul, article .text table, article .text dl, article .text hr, article .text blockquote {
-    margin-bottom: 30px;
+    margin-bottom: 17px;
     text-align: left
 }
 article .text>div {
@@ -470,10 +491,12 @@ article .text object {
     display: block
 }
 article .text b, article .text strong {
-    font-weight: bold
+    font-weight: bold;
+    color: #d35c5c;
 }
 article .text em, article .text i {
-    font-style: italic
+    font-style: italic;
+    font-size: 13.5px;
 }
 article .text u {
     text-decoration: underline
@@ -503,7 +526,7 @@ article .text pre {
     max-width: 100%;
     overflow-x: auto;
     line-height: 1.4em;
-    font-family: "Courier New", "Courier", monospace;
+    font-family: 'Noto Sans Korean', "Courier New", "Courier", monospace;
     -webkit-font-smoothing: subpixel-antialiased;
     border: 1px solid #ededee;
     background-color: #f9f9fa;
@@ -529,11 +552,11 @@ article .text code {
     max-width: 100%;
     overflow-x: auto;
     padding: 0 5px;
-    font-size: 16px;
-    font-family: "Courier New", "Courier", monospace;
+    font-size: 14px;
+    font-family: 'Noto Sans Korean', "Courier New", "Courier", monospace;
     -webkit-font-smoothing: subpixel-antialiased;
     border: 1px solid #ededee;
-    background-color: #f9f9fa;
+    background-color: #deb;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
@@ -545,25 +568,26 @@ article .text h1, article .text h2, article .text h3, article .text h4, article 
     font-weight: bold;
     margin: 40px 0 8px 0;
     line-height: 1.2em;
-    text-align: left
+    text-align: left;
+    color: #d35c5c;
 }
 article .text h1 {
     font-size: 30px
 }
 article .text h2 {
-    font-size: 28px
+    font-size: 28px;
 }
 article .text h3 {
-    font-size: 26px
-}
-article .text h4 {
     font-size: 24px
 }
-article .text h5 {
+article .text h4 {
     font-size: 22px
 }
-article .text h6 {
+article .text h5 {
     font-size: 20px
+}
+article .text h6 {
+    font-size: 18px
 }
 article .text img {
     display: block;
@@ -638,13 +662,13 @@ article .text hr {
     background-color: #ededee
 }
 article .text blockquote {
-    margin: 42px 10px;
+    margin: 28px 10px;
     padding-left: 20px;
-    border-left: 4px solid #ededee;
-    font-size: 23px
+    border-left: 4px solid orange;
+    font-size: 17px
 }
 article .text table {
-    display: block;
+    background-color: lemonchiffon;
     max-width: 100%;
     overflow-x: auto;
     text-align: left;
@@ -659,7 +683,7 @@ article .text table th {
     border-top: 1px solid #ededee
 }
 article .text table td {
-    padding: 10px 20px 7px 20px;
+    padding: 17px 20px 17px 20px;
     margin: 0 10px;
     border-bottom: 1px solid #ededee;
     border-left: 1px solid #ededee
@@ -753,7 +777,7 @@ article.image {
 }
 body.user>header {
     position: relative;
-    margin-bottom: 80px
+    margin-bottom: 70px
 }
 body.user>header .wrap {
     display: -moz-inline-stack;
@@ -777,29 +801,28 @@ body.user article {
     position: relative;
     text-align: center;
     max-width: inherit;
-    margin-top: 50px;
-    margin-bottom: 80px;
-    border-bottom: 2px solid #f7f7f7
+    margin-top: 30px;
+    border-bottom: 2px solid #f7f7f7;
 }
 body.user article:last-of-type {
     border-bottom: none;
-    margin-bottom: 40px
+    margin-bottom: 20px
 }
 body.user article header {
     text-align: left;
     margin: 0 auto;
     margin-bottom: 15px;
-    max-width: 680px
+    max-width: 750px
 }
 body.user article header h1 {
     margin: 0;
-    font-size: 32px
+    font-size: 25px
 }
 body.user article .image-holder {
     height: 300px;
     margin: 0 auto 30px auto;
     overflow: hidden;
-    max-width: 680px;
+    max-width: 750px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -832,7 +855,7 @@ body.user article .image-holder img {
 body.user article .meta {
     display: block;
     margin: 0 auto 20px auto;
-    max-width: 680px;
+    max-width: 750px;
     text-align: left;
     font-size: 14px;
     color: #a4adb6;
@@ -853,10 +876,8 @@ body.user article .readmore {
     *vertical-align: auto;
     zoom: 1;
     *display: inline;
-    font-size: 13px;
-    line-height: 1em;
-    color: #a4adb6;
-    border-bottom: 1px solid #ededee;
+    line-height: 1.7em;
+    border-bottom: 1px solid #d35c5c;
     -webkit-box-shadow: white 0 0 14px;
     -moz-box-shadow: white 0 0 14px;
     box-shadow: white 0 0 14px;
@@ -870,7 +891,8 @@ body.user article .readmore {
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
-    transition-duration: 0.5s
+    transition-duration: 0.5s;
+    font-weight: bold;
 }
 body.user article .readmore:hover {
     color: #21272d
@@ -883,8 +905,9 @@ body.user article .text {
     position: relative;
     text-align: left;
     margin: 0 auto;
-    padding-bottom: 80px;
-    max-width: 680px
+    padding-bottom: 40px;
+    max-width: 750px;
+    /*border-bottom: solid 2px #f2f2f2;*/
 }
 body.user article .text p {
     display: inline;
@@ -911,7 +934,7 @@ body.user article.featured {
 body.user article.featured>* {
     padding-left: 30px;
     padding-right: 30px;
-    max-width: 780px
+    max-width: 750px
 }
 body.user article.featured .image-holder {
     padding: 0;
@@ -932,7 +955,7 @@ body.user>#load_more {
 }
 #post_nav nav {
     margin: 0 auto;
-    max-width: 680px
+    max-width: 750px
 }
 #post_nav a {
     color: #909396;
@@ -1034,7 +1057,7 @@ body>footer>.inner, .post-footer>.inner {
     text-align: left;
     margin: 0 auto;
     padding: 0 30px;
-    max-width: 680px
+    max-width: 750px
 }
 body>footer #btn_feed, .post-footer #btn_feed {
     position: absolute;
@@ -1154,19 +1177,19 @@ body>footer #user_bio .inner, .post-footer #user_bio .inner {
     height: 62px;
     background-color: #fff;
     border: 1px solid rgba(33, 39, 45, 0.17);
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    -ms-border-radius: 60px;
-    -o-border-radius: 60px;
-    border-radius: 60px;
+    -webkit-border-radius: 62px;
+    -moz-border-radius: 62px;
+    -ms-border-radius: 62px;
+    -o-border-radius: 62px;
+    border-radius: 62px;
     z-index: 3;
     -webkit-transition-property: all 0.2s;
     -moz-transition-property: all 0.2s;
     -o-transition-property: all 0.2s;
     transition-property: all 0.2s;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    /* -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); */
 }
 #blog_badge:hover {
     -webkit-filter: grayscale(0%);
@@ -1196,7 +1219,7 @@ body>.no-posts {
     margin: 50px auto 120px auto;
     font-size: 16px;
     padding: 0 30px;
-    max-width: 680px
+    max-width: 750px
 }
 body>.no-posts.not-found {
     margin-top: 100px
@@ -1379,7 +1402,7 @@ body.touch.user article .readmore {
         opacity: 0
     }
 }
-@media only screen and (max-height: 800px) {
+@media only screen and (max-height: 750px) {
     body.user article.feature .wrap {
         padding-top: 20%
     }
@@ -1387,7 +1410,7 @@ body.touch.user article .readmore {
         padding-top: 30%
     }
 }
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 750px) {
     article .text strong .roon-img {
         margin-left: -7.5%;
         width: 115%
@@ -1542,7 +1565,7 @@ body.touch.user article .readmore {
         font-size: 16px
     }
     article .text h1, article .text h2, article .text h3, article .text h4, article .text h5, article .text h6 {
-        margin: 30px 0 8px 0
+        margin: 30px 0 15px 0
     }
     article .text blockquote {
         margin-top: 26px;
