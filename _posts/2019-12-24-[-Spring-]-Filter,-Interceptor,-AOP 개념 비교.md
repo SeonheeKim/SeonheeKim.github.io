@@ -1,4 +1,4 @@
-# Filter, Interceptor, AOP 비교
+## Filter, Interceptor, AOP 비교
 
 - 공통점 : 전체 기능에서 공통적으로 처리해야할 업무들을 분리해서 관리하는 것  
 - 호출 순서 : Filter -> Interceptor -> aop -> aop -> Interceptor -> Filter  
@@ -13,7 +13,9 @@
 | 설정 파일 | web.xml | spring-servlet.xml |  |
 | 실행 메소드 | init, doFilter, destory | preHandler, postHandler, afterCompletion | pointcut (@after, @before, @around 등) |
 
-## 1. Filter  
+<br>
+
+### 1. Filter  
 - DispatcherServlet 이전에 실행  
 - Servlet 요청과 응답을 거른 뒤 정제하는 역할  
 - web.xml에서 정의한다.  
@@ -22,8 +24,9 @@
 
 ![2](https://raw.githubusercontent.com/SeonheeKim/SeonheeKim.github.io/master/content/images/2019-12-24_filter/2.png)
 
+<br>
 
-## 2. Interceptor
+### 2. Interceptor
 - DispatcherServlet 이후에 실행  
 - HttpServletRequest, HttpServletResponse와   
 같이 Spring Context 내부에서 Controller에 관한 요청과 응답에 대해 처리  
@@ -32,8 +35,9 @@
 ![3](https://raw.githubusercontent.com/SeonheeKim/SeonheeKim.github.io/master/content/images/2019-12-24_filter/3.png)
 ![4](https://raw.githubusercontent.com/SeonheeKim/SeonheeKim.github.io/master/content/images/2019-12-24_filter/4.png)
 
+<br>
 
-## 3. AOP
+### 3. AOP
 - AOP란, 프로그램 구조를 다른 방식으로 생각하게 함으로써 OOP를 보완한다  
 - OOP에서 모듈화의 핵심단위는 클래스이지만 AOP에서 모듈화의 핵심단위는 관점(aspect)이다  
 - 관점은 다양한 타입과 객체에 걸친 트랙잭션 관리같은 관심(concern)을 모듈화할 수 있게 한다  
@@ -43,6 +47,7 @@
 
 ![5](https://raw.githubusercontent.com/SeonheeKim/SeonheeKim.github.io/master/content/images/2019-12-24_filter/5.png)
 
+<br>
 
 * * *
 
