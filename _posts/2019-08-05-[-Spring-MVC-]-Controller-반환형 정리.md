@@ -1,6 +1,6 @@
 Controller는 View에 의존적이지 않다
 
-# Controller 반환형 정리  
+## Controller 반환형 정리  
 
 Controller는 View에 의존적이지 않다. Controller는 반환형에 따라 결과를 생성할 View 이름만 지정할 뿐이다.  
 
@@ -18,7 +18,7 @@ Controller는 View에 의존적이지 않다. Controller는 반환형에 따라 
 아래 예시들은 InternalResourceViewResolver를 이용했다.  
 (war 파일 내에 포함된 뷰 템플릿을 찾는다. 이때 뷰 템플릿의 경로는 <span style="color:#e11d21">prefix</span> + <span style="color:#207de5">View 이름</span> + <span style="color:#009800">suffix</span>으로 구성된다.)  
 
-## 1. String형  
+### 1. String형  
 
 메소드에서 반환하는 String으로 View 이름을 정한다.  
 
@@ -33,8 +33,9 @@ public String getUserInfo(Model model) {
 뷰 템플릿은 <span style="color:#e11d21">/WEB-INF/views/</span><span style="color:#207de5">userGameInfo</span><span style="color:#009800">.jsp</span>로 매핑된다.  
 
 뷰로 전달하고자 하는 데이터가 존재할 경우 Model 객체에 담아서 반환한다.  
+<br>
 
-## 2. redirect  
+### 2. redirect  
 반환하는 View 이름에 "redirect:" 접두어를 붙이면 지정한 페이지로 리다이렉트된다.  
 * 해당 접두어는 UrlBasedViewResolver 클래스를 상속받은 ViewResolver를 사용할 경우 올바르게 처리된다.  
 
@@ -44,8 +45,9 @@ public String getMemberInfo(@RequestParam(value = "url") String url) {
     return "redirect:" + url;
 }
 ```
+<br>
 
-## 3. void형  
+### 3. void형  
 
 Spring은 View 이름을 지정하지 않아도 설정된 URI를 이용해(RequestToViewNameTranslator) View 이름을 결정한다.  
 
@@ -67,8 +69,9 @@ public class SinyutnoriController {
 }
 ```
 <span style="color:#e11d21">/WEB-INF/views/</span><span style="color:#207de5">casual/sinyutnori/userGameInfo</span><span style="color:#009800">.jsp</span> 뷰 템플릿으로 매핑된다.
+<br>
 
-## 4. ModelAndView형  
+### 4. ModelAndView형  
 
 ```
 @Controller
@@ -85,8 +88,9 @@ public class SinyutnoriController {
 ```
 ModelAndView 객체에 View 이름과 데이터를 직접 담아(addObject) 반환한다.  
 View 이름은 String형에서와 같이 <span style="color:#e11d21">/WEB-INF/views/</span><span style="color:#207de5">userGameInfo</span><span style="color:#009800">.jsp</span> 뷰 템플릿에 매핑된다.  
+<br>
 
-## 5. Java Model
+### 5. Java Model
 이 경우도 View 이름을 지정해줄 수 없기에 void와 같이 RequestToViewNameTranslator를 이용해 결정한다.  
 ```
 @Controller
@@ -102,8 +106,9 @@ public class SinyutnoriController {
 }
 ```
 <span style="color:#e11d21">/WEB-INF/views/</span><span style="color:#207de5">casual/sinyutnori/userGameInfo</span><span style="color:#009800">.jsp</span>
+<br>
 
-## 6. @ResponseBody  
+### 6. @ResponseBody  
 반환 데이터 타입에 따라 자동으로 HttpMessageConverter를 이용하여 데이터를 변환하고 해당 내용을 HTTP body에 매핑한다.  
 따라서 이 어노테이션을 이용할 경우 View 이름을 지정하지 않는다.  
 
