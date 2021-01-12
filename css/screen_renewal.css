@@ -668,7 +668,7 @@ article .text blockquote {
     font-size: 17px
 }
 article .text table {
-    background-color: lemonchiffon;
+    background-color: #fafafa;
     max-width: 100%;
     overflow-x: auto;
     text-align: left;
