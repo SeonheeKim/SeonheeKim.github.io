@@ -566,7 +566,7 @@ article .text code {
 }
 article .text h1, article .text h2, article .text h3, article .text h4, article .text h5, article .text h6 {
     font-weight: bold;
-    margin: 40px 0 8px 0;
+    margin: 35px 0 8px 0;
     line-height: 1.2em;
     text-align: left;
     color: #d35c5c;
@@ -635,7 +635,7 @@ article .text ul, article .text ol, article .text dl {
     padding: 0 20px
 }
 article .text ul li, article .text ol li, article .text dl li {
-    margin: 14px 20px;
+    margin: 3px 20px;
     line-height: 1.5em
 }
 article .text ul ul {
@@ -1284,7 +1284,7 @@ body>.no-posts [data-icon]:before {
     font-weight: bold;
     font-size: 24px;
     float: right;
-    margin-top: -5px
+    margin-top: -5pxarticle .text h1, article .text h2, article .text h3, article .text h4, article .text h5, article .text h6
 }
 #share_modal header a.close:hover {
     color: #21272d
