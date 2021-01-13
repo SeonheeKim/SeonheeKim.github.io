@@ -5,7 +5,7 @@ logo_chick : chick.png  # https://www.flaticon.com/free-icon/chick_789473#term=c
 email: dnwdjqldb@naver.com
 description: > # this means to ignore newlines until "url:"
   About <br>게임웹서비스개발팀 <br> NHN Corporation<br>
-url: "http://SeonheeKim.github.io" # the base hostname & protocol for your site
+url: "https://SeonheeKim.github.io" # the base hostname & protocol for your site
 baseurl: / # the subpath of your site, e.g. /blog/
 github_username:  SeonheeKim
 
