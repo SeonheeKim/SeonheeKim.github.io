@@ -1,6 +1,4 @@
-### 크롬에서 로컬 개발 시, CORS 오류 정리  
-
-- 신규 환경의 어드민 프로젝트에서 로컬 개발할 때, 오류로 헤맸던 부분에 대해 정리합니다.  
+신규 환경의 어드민 프로젝트에서 로컬 개발할 때, 오류로 헤맸던 부분에 대해 정리합니다.  
 <br>
 
 ### 오류 발생!!  
@@ -28,45 +26,45 @@ CORS 설정해서 서버단에서 접근을 허용해야 CORS policy에 위반�
 <br>
 
 **방법 1. CorsRegistry 등록**  
-- 웹 어플리케이션의 WebConfiguration 내 CorsRegistry를 등록하는 방법입니다.  
+웹 어플리케이션의 WebConfiguration 내 CorsRegistry를 등록하는 방법입니다.  
 그런데 이미 기존 소스에도 WebConfiguration 내 CorsRegistry가 등록되어 있었습니다.  
 
 ``` java
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
-    ...
+        ...
     
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-            .allowedOrigins("http://localhost:3000", 
-                            "http://local-test.admin.com:3000",
-                            "http://dev-test.admin.com",
-                            "http://alpha-test.admin.com",
-                            "http://beta- test.admin.com",
-                            "http://test.admin.com")
-            .allowedMethods("*")
-            .allowedHeaders("*")
-            .allowCredentials(true)
-            .maxAge(3000);
-    }
-    
-    ...
-    
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:3000", 
+                                "http://local-test.admin.com:3000",
+                                "http://dev-test.admin.com",
+                                "http://alpha-test.admin.com",
+                                "http://beta- test.admin.com",
+                                "http://test.admin.com")
+                        .allowedMethods("*")
+                        .allowedHeaders("*")
+                        .allowCredentials(true)
+                        .maxAge(3000);
+        }
+
+       ...
+   
 }
 ```
 
 <br>
 
 **방법 2. Controller에 @CrossOrigin 어노테이션 적용**  
-- 해당 어노테이션은 CORS를 스프링을 통해 설정할 수 있는 기능입니다.  
+해당 어노테이션은 CORS를 스프링을 통해 설정할 수 있는 기능입니다.  
 
 ``` java
 @RestController
 @RequestMapping
 @CrossOrigin("http://local-test.admin.com:3000")
 public class MileageApiController {
-    ...
+        ...
 }
 ```
 
@@ -119,27 +117,28 @@ CORS 설정하는 방법은 위에서 많이 시도했는데,
 ``` java
 @Configuration
 public class CertificationFilterConfiguration implements WebMvcConfigurer {
-    ...
+        ...
     
-    @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter() 
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://local-test.admin.com:3000");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        config.setMaxAge(3000L);
+        @Bean
+        public FilterRegistrationBean<CorsFilter> corsFilter() {
+                CorsConfiguration config = new CorsConfiguration();
+                config.setAllowCredentials(true);
+                config.addAllowedOrigin("http://local-test.admin.com:3000");
+                config.addAllowedHeader("*");
+                config.addAllowedMethod("*");
+                config.setMaxAge(3000L);
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
+                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                source.registerCorsConfiguration("/**", config);
 
-        FilterRegistrationBean<CorsFilter> filterRegistrationBean = new FilterRegistrationBean<>();
-        filterRegistrationBean.setFilter(new CorsFilter(source));
-        filterRegistrationBean.setOrder(0);
-        return filterRegistrationBean;
-    }
+                FilterRegistrationBean<CorsFilter> filterRegistrationBean = new FilterRegistrationBean<>();
+                filterRegistrationBean.setFilter(new CorsFilter(source));
+                filterRegistrationBean.setOrder(0);
+
+                return filterRegistrationBean;
+        }
     
-    ...
+        ...
 
 ```
 <br>
@@ -159,7 +158,6 @@ CORS filter를 등록한 후, 실제 동작을 확인해보니 아래와 같이 
 #### **추가적 내용**  
 로컬 테스트를 성공적으로 마친 후, 한 가지 의문이 생겼습니다.  
 왜 dev, alpha에선 CORS filter가 없어도 정상 동작이 되고 있는가였습니다.  
-이미 리얼까지 반영되어 동작 중인 프로젝트인데도 말이죠...!   
 <br>
 확인해본 바로는 IE에서는 다른 브라우저와 다르게 동일 출처 정책 예외사항이 2가지가 존재했습니다.  
 - 신뢰할 수 있는 사이트 : 양쪽 도메인 모두가 높음 단계의 보안 수준을 가지고 있는 경우  
@@ -172,8 +170,7 @@ CORS filter를 등록한 후, 실제 동작을 확인해보니 아래와 같이 
 <br>
 
 ### 참고 내용
-Same Origin 판단 예시  
-- 기준 URL : http://local-test.admin.com  
+Same Origin 판단 예시 - 기준 URL : http://local-test.admin.com  
 
 | URL | 동일 여부 | 이유 |
 | --- | --- | --- |
