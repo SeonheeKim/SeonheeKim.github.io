@@ -185,13 +185,13 @@ Same Origin 판단 예시 - 기준 URL : http://local-test.admin.com
 <br><br>
 
 ### 참고 출처  
-- https://velog.io/@jmkim87/지긋지긋한-CORS-파헤쳐보자  
-- https://velog.io/@yejinh/CORS-4tk536f0db  
-- https://vvshinevv.tistory.com/62  
-- https://vvshinevv.tistory.com/61?category=861457  
-- http://wiki.gurubee.net/display/SWDEV/CORS+%28Cross-Origin+Resource+Sharing%29  
-- https://charsyam.wordpress.com/2020/06/23/tip-spring-boot-2-1-0-에서의-cors-설정  
-- https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy  
-- https://evan-moon.github.io/2020/05/21/about-cors  
-- https://developer.mozilla.org/ko/docs/Web/HTTP/CORS  
-- https://www.popit.kr/cors-preflight-인증-처리-관련-삽질  
+- [https://velog.io/@jmkim87/지긋지긋한-CORS-파헤쳐보자](https://velog.io/@jmkim87/지긋지긋한-CORS-파헤쳐보자)   
+- [https://velog.io/@yejinh/CORS-4tk536f0db](https://velog.io/@yejinh/CORS-4tk536f0db)  
+- [https://vvshinevv.tistory.com/62](https://vvshinevv.tistory.com/62)  
+- [https://vvshinevv.tistory.com/61?category=861457](https://vvshinevv.tistory.com/61?category=861457)  
+- [http://wiki.gurubee.net/display/SWDEV/CORS+%28Cross-Origin+Resource+Sharing%29](http://wiki.gurubee.net/display/SWDEV/CORS+%28Cross-Origin+Resource+Sharing%29)  
+- [https://charsyam.wordpress.com/2020/06/23/tip-spring-boot-2-1-0-에서의-cors-설정](https://charsyam.wordpress.com/2020/06/23/tip-spring-boot-2-1-0-에서의-cors-설정)  
+- [https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy](https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy)  
+- [https://evan-moon.github.io/2020/05/21/about-cors](https://evan-moon.github.io/2020/05/21/about-cors)  
+- [https://developer.mozilla.org/ko/docs/Web/HTTP/CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)  
+- [https://www.popit.kr/cors-preflight-인증-처리-관련-삽질](https://www.popit.kr/cors-preflight-인증-처리-관련-삽질)  
